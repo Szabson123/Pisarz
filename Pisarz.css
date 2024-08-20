@@ -113,6 +113,14 @@ nav img {
     position: relative;
     text-align: right;
 }
+.arrow {
+    transition: transform 0.3s ease; /* Płynna animacja obrotu */
+}
+
+.rotate {
+    transform: rotate(180deg); /* Obrócenie strzałki o 180 stopni */
+}
+
 .arrow1{
     position: absolute; /* Absolutne pozycjonowanie */
     right: 10px; /* Odległość od prawej krawędzi */
@@ -256,16 +264,30 @@ nav img {
     padding: 0 2rem;
     overflow: hidden;
     display: none;
+    max-height: 0;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
 }
+.pannel.active {
+    display: block;
+    max-height: 500px; /* Przykładowa wartość, dostosuj do treści */
+    padding-top: 10px;
+}
+
 .pannel p{
     font-family: Josefin Sans;
     font-size: 38px;
     font-weight: 300;
     padding: 32px 24px;
 }
-.line{
-    width: auto;
-    border: rgba(0, 0, 0.2) 0.2px solid;
+.line {
+    opacity: 0; /* Ukrywa linię domyślnie */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.line.active {
+    display: block; 
+    border: rgba(0, 0, 0.5) 1px solid; 
+    opacity: 1;
 }
 .wrapper h2{
     font-family: Uchen;
@@ -287,8 +309,8 @@ nav img {
 }
 .accordion1{
     background-color: rgba(222, 222, 222, 1);
-    border-top: rgb(0, 0, 0) 2px solid;
-    border-bottom: rgba(0, 0, 0.5) 2px solid;
+    border-top: rgb(0, 0, 0) 1px solid;
+    border-bottom: rgba(0, 0, 0.5) 1px solid;
 }
 .footer-line{
     border: solid black 1px;

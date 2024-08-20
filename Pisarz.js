@@ -1,20 +1,34 @@
 var acc = document.getElementsByClassName("accordion");
 var i;
-var arrow = document.getElementsByClassName("arrow");
 
 for(i = 0; i < acc.length; i++){
-    acc[i].addEventListener("click", function
-    () {
+    acc[i].addEventListener("click", function() {
         var pannel = this.nextElementSibling;
+        var line = pannel.nextElementSibling;
 
-        if(pannel.style.display === "block") {
-            pannel.style.display = "none";
+        if(pannel.classList.contains("active")) {
+            pannel.style.maxHeight = "0"; // Rozpoczęcie animacji zwijania
+            pannel.style.paddingTop = "0"; // Zmniejszenie paddingu do 0
+            line.classList.remove("active"); // Ukrycie linii
+            setTimeout(function() {
+                pannel.classList.remove("active");
+                pannel.style.display = "none"; // Ukrycie panelu po zakończeniu animacji
+            }, 500); // Czekamy na zakończenie animacji zanim ustawimy display na none
         } else {
-            pannel.style.display = "block";
-
+            pannel.style.display = "block"; 
+            pannel.style.maxHeight = "0";
+            setTimeout(function() {
+                pannel.classList.add("active");
+                line.classList.add("active");
+                pannel.style.maxHeight = pannel.scrollHeight + "px";
+                pannel.style.paddingTop = "10px";
+            }, 10); 
         }
     });
 }
+
+
+
 function swapBooks(clickedBook) {
     const book1 = document.querySelector('.book1');
     const book2 = document.querySelector('.book2');
