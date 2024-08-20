@@ -5,15 +5,17 @@ for(i = 0; i < acc.length; i++){
     acc[i].addEventListener("click", function() {
         var pannel = this.nextElementSibling;
         var line = pannel.nextElementSibling;
+        var icon = this.querySelector('.fa-chevron-down'); 
 
         if(pannel.classList.contains("active")) {
-            pannel.style.maxHeight = "0"; // Rozpoczęcie animacji zwijania
-            pannel.style.paddingTop = "0"; // Zmniejszenie paddingu do 0
-            line.classList.remove("active"); // Ukrycie linii
+            pannel.style.maxHeight = "0"; 
+            pannel.style.paddingTop = "0"; 
+            line.classList.remove("active"); 
+            icon.style.transform = "rotate(0deg)"; 
             setTimeout(function() {
                 pannel.classList.remove("active");
-                pannel.style.display = "none"; // Ukrycie panelu po zakończeniu animacji
-            }, 500); // Czekamy na zakończenie animacji zanim ustawimy display na none
+                pannel.style.display = "none"; 
+            }, 500); 
         } else {
             pannel.style.display = "block"; 
             pannel.style.maxHeight = "0";
@@ -22,10 +24,12 @@ for(i = 0; i < acc.length; i++){
                 line.classList.add("active");
                 pannel.style.maxHeight = pannel.scrollHeight + "px";
                 pannel.style.paddingTop = "10px";
+                icon.style.transform = "rotate(180deg)"; 
             }, 10); 
         }
     });
 }
+
 
 
 

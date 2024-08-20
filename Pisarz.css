@@ -239,6 +239,13 @@ nav img {
     padding: 0;
     box-sizing: border-box;
 }
+.accordion .fa-chevron-down {
+    transition: transform 0.3s ease; /* Płynna animacja */
+}
+
+.accordion.active .fa-chevron-down {
+    transform: rotate(180deg); /* Obrót o 180 stopni */
+}
 .accordion{
     font-family: Sofia Sans;
     font-size: 36px;
