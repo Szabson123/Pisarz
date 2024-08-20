@@ -4,20 +4,20 @@ body{
 }
 
 nav {
-    display: flex; /* Ustawia flexbox dla elementów wewnątrz nav */
-    justify-content: space-between; /* Rozkłada elementy na maksymalną szerokość */
-    align-items: center; /* Wyrównuje elementy pionowo do środka */
-    padding: 10px 20px; /* Dodaje padding wokół nawigacji */
-    background-color: #f8f9fa; /* Opcjonalnie: kolor tła nawigacji */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
 }
 
 nav img {
-    height: 50px; /* Ustawienie wysokości obrazka, dostosuj według potrzeb */
+    height: 50px;
 }
 
 .nav-links {
-    display: flex; /* Ustawienie flexbox dla linków */
-    gap: 20px; /* Odstępy między linkami */
+    display: flex;
+    gap: 20px;
 }
 
 .nav-links a {
@@ -30,7 +30,12 @@ nav img {
 }
 
 .nav-links a:hover {
-    text-decoration: underline; /* Podkreślenie przy najechaniu */
+    text-decoration: underline;
+}
+
+
+.hamburger {
+    display: none;
 }
 
 .text-btns-icons{
@@ -379,9 +384,36 @@ nav img {
 }
 
 /* Dla ekranów o szerokości mniejszej niż 992px */
-@media (max-width: 992px) {
+@media (max-width: 1000px) {
     .text-container {
         margin-right: 50px;
+    }
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 60px; 
+        right: 20px;
+        background-color: #f8f9fa;
+        width: 200px; 
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+
+    .nav-links a {
+        font-size: 20px; 
+        padding: 10px 0;
+    }
+
+    .hamburger {
+        display: block; 
+        cursor: pointer;
+        font-size: 30px;
+    }
+
+    .nav-links.active {
+        display: flex; 
     }
 }
 

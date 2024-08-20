@@ -100,3 +100,7 @@ function manageClickableBooks() {
 
 // Inicjalizacja stanu na początku
 manageClickableBooks();
+
+document.querySelector('.hamburger').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+});
